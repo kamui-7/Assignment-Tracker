@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.stuController">
+   <columnConstraints>
+      <ColumnConstraints />
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="831.0" prefWidth="1220.0">
+         <children>
+            <Button fx:id="backStu" layoutX="27.0" layoutY="27.0" mnemonicParsing="false" onAction="#go_back_stu" prefHeight="38.0" prefWidth="96.0" style="-fx-border-color: WHITE; -fx-font-family: Noto Sans CJK JP Regular; -fx-font-size: 13;" text="Go Back" />
+            <TableView fx:id="stuTableView" layoutX="50.0" layoutY="91.0" prefHeight="660.0" prefWidth="1119.0" style="-fx-border-color: WHITE;">
+              <columns>
+                <TableColumn fx:id="stuName" prefWidth="1118.0" style="-fx-font-weight: Normal; -fx-font-family: Noto Sans CJK JP Regular; -fx-font-size: 15;" text="Students" />
+              </columns>
+            </TableView>
+            <Label layoutX="156.0" layoutY="22.0" prefHeight="54.0" prefWidth="807.0" text="                    Select a student to view their lab progress " textFill="#7ab6f5">
+               <font>
+                  <Font name="Noto Sans CJK JP Regular" size="33.0" />
+               </font>
+            </Label>
+            <Button fx:id="goLab" layoutX="1063.0" layoutY="770.0" mnemonicParsing="false" onAction="#go_lab" prefHeight="38.0" prefWidth="134.0" style="-fx-border-color: WHITE; -fx-font-size: 13;" text="View Progress" />
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>

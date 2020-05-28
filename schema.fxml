@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="422.0" prefWidth="512.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="-62.0" layoutY="16.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="347.0" prefWidth="531.0">
+         <children>
+            <TextArea editable="false" layoutX="87.0" layoutY="24.0" prefHeight="357.0" prefWidth="460.0" style="-fx-border-color: WHITE;" text="-------- Tables ------&#10;&#10;Class_2A&#10;Class_3B&#10;Class_3A&#10;Class_4B&#10;&#10;&#10;-------- Class Table Schema -------&#10;&#10;entryId integer PRIMARY KEY AUTOINCREMENT&#10;studentId integer &#10;studentName text NOT NULL&#10;projectName text NOT NULL&#10;points integer&#10;completed boolean&#10;datefinished date">
+               <font>
+                  <Font name="Noto Sans CJK JP Regular" size="13.0" />
+               </font></TextArea>
+            <Label layoutX="266.0" layoutY="-19.0" prefHeight="16.0" prefWidth="97.0" text="Schema" textFill="#7ab6f5">
+               <font>
+                  <Font name="Noto Sans CJK JP Regular" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

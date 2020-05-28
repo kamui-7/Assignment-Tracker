@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="516.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.MainController">
+   <children>
+      <AnchorPane layoutX="-272.0" layoutY="-156.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextArea fx:id="queryOutput" editable="false" layoutX="14.0" layoutY="100.0" prefHeight="390.0" prefWidth="673.0" style="-fx-font-family: Courier New;">
+         <font>
+            <Font name="DejaVu Sans ExtraLight" size="11.0" />
+         </font></TextArea>
+      <TextField fx:id="query" layoutX="14.0" layoutY="37.0" prefHeight="54.0" prefWidth="577.0" />
+      <Button fx:id="queryButton" layoutX="604.0" layoutY="37.0" mnemonicParsing="false" onAction="#querydb" prefHeight="54.0" prefWidth="85.0" style="-fx-border-color: WHITE;" text="Go" />
+      <Label layoutX="14.0" layoutY="14.0" text="Enter a valid SQL Query" />
+   </children>
+</AnchorPane>
