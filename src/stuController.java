@@ -24,86 +24,74 @@ import jfxtras.styles.jmetro8.JMetro;
 import jfxtras.styles.jmetro8.JMetro.Style;
 
 public class stuController implements Initializable {
-	
-	
-	@FXML private Button backStu;
 
-	
-	private DataBase db = new DataBase(); 
+	@FXML
+	private Button backStu;
+
+	private DataBase db = new DataBase();
 	private JMetro jmetro = new JMetro(Style.DARK);
 	private String className;
-	
-	
-	@FXML public TableView<Student> stuTableView;
-	@FXML public TableColumn<Student, String> stuName;
-	@FXML public Button goLab;
-	
-	
+
+	@FXML
+	public TableView<Student> stuTableView;
+	@FXML
+	public TableColumn<Student, String> stuName;
+	@FXML
+	public Button goLab;
+
 	public Scene setStart() throws IOException {
 
-		Parent start = FXMLLoader.load(getClass().getResource("Welcome Screen.fxml"));
-    	Scene startscene = new Scene(start);
-    	
-    	
-        jmetro.applyTheme(startscene);
-        startscene.getStylesheets().add(getClass().getResource("Dark Theme.css").toExternalForm());
-        return startscene;
+		Parent start = FXMLLoader.load(getClass().getResource("ui/Welcome Screen.fxml"));
+		Scene startscene = new Scene(start);
+
+		jmetro.applyTheme(startscene);
+		startscene.getStylesheets().add(getClass().getResource("Dark Theme.css").toExternalForm());
+		return startscene;
 	}
-	
+
 	public void go_back_stu(ActionEvent event) throws IOException {
 
-		Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		Scene welcome = setStart();
 		window.setTitle("Lab/Project Progress Tracker");
 		window.setScene(welcome);
 		window.show();
 	}
-	
-	
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		stuName.setCellValueFactory(new PropertyValueFactory<Student,String>("name"));
-
+		stuName.setCellValueFactory(new PropertyValueFactory<Student, String>("name"));
 	}
-	
 
-	public void get_table_name(String table) throws SQLException{
+	public void get_table_name(String table) throws SQLException {
 		this.className = table;
-
 		stuTableView.setItems(getStudents("Class_" + className));
-
-
 	}
-	
-	public ObservableList<Student> getStudents(String table) throws SQLException{
+
+	public ObservableList<Student> getStudents(String table) throws SQLException {
 		ObservableList<Student> students = FXCollections.observableArrayList();
 		ArrayList<Student> stuData = db.get_stu_db(table);
-		for ( Student x : stuData) {
+		for (Student x : stuData) {
 			students.add(x);
 		}
 		return students;
-		
-		
-		
+
 	}
-	
+
 	public void go_lab(ActionEvent event) throws IOException, SQLException {
 		Stage labStage = new Stage();
-		
+
 		FXMLLoader labloader = new FXMLLoader();
-		labloader.setLocation(getClass().getResource("LabView.fxml"));
+		labloader.setLocation(getClass().getResource("ui/LabView.fxml"));
 		Parent labPar = labloader.load();
-		Scene labScene = new Scene(labPar); 	
+		Scene labScene = new Scene(labPar);
 
 		labController controller = labloader.getController();
 		controller.initData((Student) stuTableView.getSelectionModel().getSelectedItem(), className);
-		labScene.getStylesheets().add(getClass().getResource("Dark Theme.css").toExternalForm());
+		labScene.getStylesheets().add(getClass().getResource("ui/style/Dark Theme.css").toExternalForm());
 		labStage.setTitle(stuTableView.getSelectionModel().getSelectedItem().getName());
 		labStage.setScene(labScene);
 		labStage.show();
 	}
-	
-	
-	
-	
+
 }
